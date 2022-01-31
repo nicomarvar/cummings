@@ -1,0 +1,482 @@
+@keyframes fadeInPlace {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.fadeInPlace{
+    animation: fadeInPlace 4s  linear;
+}
+
+@keyframes fadeFromRight {
+    from{
+        transform: translateX(20px);
+        opacity: 0;
+        filter: blur(8px);
+    }
+    to{
+        translate: translateX(0);
+        opacity: 1;
+        filter: blur(0.8px);
+    }
+}
+.fadeFromRight{
+    animation: fadeFromRight 2s linear;
+}
+
+@keyframes fadeFromLeft {
+    from{
+        transform: translateX(-50px);
+        opacity: 0;
+        filter: blur(8px) drop-shadow(5px 0px 10px rgb(0 0 0/0.6))
+    }
+    to{
+        translate: translateX(0);
+        opacity: 1;
+        filter: blur(0px) drop-shadow(5px 0px 10px rgb(0 0 0/0.6))
+    }
+}
+.fadeFromLeft{
+    animation: fadeFromLeft 3s linear;
+}
+
+@keyframes fadeFromBottom {
+    from{
+        transform: translateY(30px);
+        opacity: 0;
+        filter: blur(8px) drop-shadow(5px 0px 10px rgb(0 0 0/0.6))
+    }
+    to{
+        translate: translateY(0);
+        opacity: 1;
+        filter: blur(0px) drop-shadow(5px 0px 10px rgb(0 0 0/0.6))
+    }
+}
+.fadeFromBottom{
+    animation: fadeFromBottom 2s linear;
+}
+
+@keyframes fadeInPlaceRot {
+    from{
+        opacity: 0;
+        transform: rotate(0deg) scale(0.5);
+    }
+    to{
+        opacity: 1;
+        transform: rotate(360deg) scale(1.1);
+    }
+}
+.fadeInPlaceRot{
+    animation: fadeInPlaceRot 5s ease-out;
+}
+
+
+@font-face {
+    font-family: mirage;
+    src: url(/font/mirage.otf);
+}
+
+@keyframes scrollDown {
+    0%{
+        border-radius: 100px;
+        color: rgba(200, 255, 250, 0);
+        bottom: -50px;
+        left: 52.5%;
+        transform: scale(0.5);
+        transform: rotate(180deg);
+        filter: blur(2px);
+    }
+    40%{
+        border-radius: 0px;
+        color: rgba(200, 255, 250, 1);
+        bottom: 20px;
+        left: 42.5%;
+        transform: scale(1);
+        transform: rotate(0deg);
+        filter: blur(0);
+    }
+    60%{
+        border-radius: 0px;
+        color: rgba(200, 255, 250, 1);
+        bottom: 20px;
+        left: 42.5%;
+        transform: scale(1);
+        transform: rotate(0deg);
+        filter: blur(0);
+    }
+    100%{
+        border-radius: 100px;
+        color: rgba(200, 255, 250, 0);
+        bottom: -50px;
+        left: 32.5%;
+        transform: scale(0.5);
+        transform: rotate(-180deg);
+        filter: blur(2px);
+    }
+}
+
+html::-webkit-scrollbar {
+    display: none;
+ }
+
+h1,h2,h3{
+    font-family: mirage;
+}
+
+html{
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: mirage;
+    --fontColor: rgb(200, 255, 250);
+}
+
+body{
+    position: relative;
+    width: 100%;
+    margin: 0;
+    color: var(--fontColor);
+    background: rgb(24,255,225);
+    background: linear-gradient(180deg, rgba(24,255,225,1) 0%, rgba(91,156,251,1) 14.28%, rgba(97,83,255,1) 28.56%, rgba(254,76,250,1) 42.84%, rgba(255,0,228,1) 57.12%, rgba(255,13,79,1) 71.40%, rgba(255,30,84,1) 85.68%, rgba(255,27,51,1) 100%);
+}
+
+.scrollDown{
+    position: fixed;
+    bottom: 20px;
+    left: 42.5%;
+    z-index: 6;
+    width: 15%;
+    color: rgb(200, 255, 250);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    animation-name: scrollDown;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+nav{
+    position: fixed;
+    height:80vh;
+    top: 10vh;
+    right: 0;
+    width: 5vw;
+    z-index: 6;
+}
+
+ul{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    width: 100%;
+    color: var(--fontColor);
+    list-style: none;
+    display: flex;
+    place-content: center;
+}
+
+.liCurrent{
+    transition: 1s;
+    fill: rgb(200, 255, 250);
+}
+
+.block{
+    scroll-snap-align: center;
+    position: relative;
+    min-block-size: 100vh;
+    max-block-size: 100vh;
+    max-height: 100vh;
+    width: 100%;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+}
+
+.title{
+    color: rgb(200, 255, 250);
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    font-family: serif;
+}
+
+.title h1,h2,h3{
+    margin: 1%;
+}
+
+.title h1{
+    font-size: 15vh;
+    line-height: 15vh;
+    filter: drop-shadow(10px 10px 2px rgb(97 83 255 /0.2));
+}
+
+p{
+    font-size: 2vw;
+    margin: 30px;
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+}
+
+.verseOne p{
+    left: 85%;
+    width: 30vw;
+    margin-left: -15vw;
+}
+
+.verseOne img{
+    height: 90vh;
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.verseOne img:nth-of-type(2){
+    height: 80vh;
+    z-index: 1;
+    position: absolute;
+    top: 20vh;
+    left: 52vw;
+    filter: drop-shadow(5px 0px 10px rgb(0 0 0/0.6)) blur(0.8px);
+}
+
+.verseOne img:nth-of-type(3){
+    height: 80vh;
+    z-index: 0;
+    position: absolute;
+    top: 0px;
+    left: 35vw;
+    filter: blur(4px);
+}
+
+.verseTwo p{
+    left: 65%;
+    top: 5vh;
+    width: 30vw;
+}
+
+.verseTwo img{
+    height: 90vh;
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.verseTwo img:nth-of-type(2){
+    height: 70vh;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 48vw;
+    filter: drop-shadow(5px 0px 10px rgb(0 0 0/0.6)) blur(0.8px);
+}
+
+.verseTwo img:nth-of-type(3){
+    height: 80vh;
+    z-index: 0;
+    position: absolute;
+    top: -2px;
+    left: 25vw;
+    filter: blur(4px);
+}
+.verseThree p{
+    left: 50%;
+    bottom: 10%;
+    width: 30vw;
+    margin-left: -15vw;
+}
+
+.verseThree img{
+    height: 85vh;
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+}
+
+.verseThree img:nth-of-type(2){
+    height: 85vh;
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.verseThree img:nth-of-type(3){
+    height: 75vh;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(4px);
+}
+
+.verseThree img:nth-of-type(4){
+    width: 70vw;
+    z-index: 2;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.verseFour p{
+    left: 2%;
+    top: 5%;
+    width: 30vw;
+}
+
+.verseFour img:nth-of-type(1){
+    height: 90vh;
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-60%);
+}
+
+.verseFour img:nth-of-type(2){
+    height: 90vh;
+    z-index: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    filter: drop-shadow(5px 0px 10px rgb(0 0 0/0.6)) blur(4px);
+}
+
+.verseFive p{
+    left: 50%;
+    top: 10vh;
+    width: 30vw;
+    margin-left: -15vw;
+}
+
+.verseFive img:nth-of-type(1){
+    height: 85vh;
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    filter: drop-shadow(5px 0px 10px rgb(0 0 0/0.6));
+}
+
+.verseFive img:nth-of-type(2){
+    height: 85vh;
+    z-index: 1;
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    filter: drop-shadow(5px 0px 10px rgb(0 0 0/0.6));
+}
+
+.verseFive img:nth-of-type(3){
+    height: 800px;
+    z-index: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(2px);
+}
+
+.verseSix p{
+    right: 5vw;
+    bottom: 10vh;
+    width: 30vw;
+}
+
+.verseSix img:nth-of-type(1){
+    height:90vh;
+    transform: scale(2) translateX(20%) translateY(-25%);
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    filter: drop-shadow(5px 0px 10px rgb(0 0 0/0.6));
+}
+
+.verseSix svg{
+    z-index: 0;
+    position: absolute;
+    left: 5vw;
+    filter: blur(3px) brightness(150%);
+}
+
+.verseSix svg:nth-of-type(1){
+    z-index: 0;
+    transform: rotate(45deg) scale(1.2);
+    top: 20vh;
+}
+
+.verseSix svg:nth-of-type(2){
+    z-index: 1;
+    transform: rotate(-35deg) scale(1.2);
+    left: 25vw;
+}
+
+.verseSeven p{
+    left: 5vw;
+    bottom: 50%;
+    transform: translateY(50%);
+    width: 30vw;
+}
+
+.verseSeven img{
+    height:90vh;
+    z-index: 2;
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+    transform: scale(1.1);
+    filter: drop-shadow(5px 5px 10px rgb(255 255 255/0.5));
+}
+
+.verseEight p{
+    right: 5vw;
+    bottom: 10vh;
+    width: 30vw;
+}
+
+.verseEight img:nth-of-type(1){
+    height:90vh;
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+    left: 10%;
+    filter: drop-shadow(5px 0px 10px rgb(0 0 0/0.6));
+}
+
+.verseEight svg{
+    z-index: 0;
+    position: absolute;
+    left: 5vw;
+    filter: blur(3px) brightness(150%);
+}
+
+.verseEight svg:nth-of-type(1){
+    z-index: 0;
+    transform: rotate(45deg) scale(1.2);
+    top: 20vh;
+}
+
+.verseEight svg:nth-of-type(2){
+    z-index: 1;
+    transform: rotate(-35deg) scale(1.2);
+    left: 25vw;
+}
+
+
